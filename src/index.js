@@ -38,13 +38,14 @@ function onSearch(e) {
                 Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
                 
                 if (data.totalHits > perPage) {
-                loadMore.classList.add("visible");
+                    loadMore.classList.add("visible");
                 } else {
-                  loadMore.classList.remove("visible");  
+                    loadMore.classList.remove("visible");  
             }
         }
     })
         .catch(error => console.log(error));
+    form.reset();
 }
 
 async function fetchPhotos(search, page, perPage) {
