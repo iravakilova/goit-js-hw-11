@@ -45,7 +45,7 @@ function onSearch(e) {
         }
     })
         .catch(error => console.log(error));
-    form.reset();
+    onSearch.reset();
 }
 
 async function fetchPhotos(search, page, perPage) {
@@ -59,17 +59,17 @@ function galleryMarkup(photos) {
     const markup = photos.map(photo => {
         const { id, webformatURL, tags, likes, views, comments, downloads, largeImageURL } = photo;
         return `
-            <a class="gallery__link" href="${largeImageURL}">
-                <div class="gallery-item" id="${id}">
-                    <img class="gallery-item__img" src="${webformatURL}" alt="${tags}" loading="lazy" />
-                    <div class="info">
-                    <p class="info-item"><b>Likes:</b>${likes}</p>
-                    <p class="info-item"><b>Views:</b>${views}</p>
-                    <p class="info-item"><b>Comments:</b>${comments}</p>
-                    <p class="info-item"><b>Downloads:</b>${downloads}</p>
+                <a class="gallery__link" href="${largeImageURL}">
+                    <div class="gallery-item" id="${id}">
+                        <img class="gallery-item__img" src="${webformatURL}" alt="${tags}" loading="lazy" />
+                        <div class="info">
+                        <p class="info-item"><b>Likes:</b>${likes}</p>
+                        <p class="info-item"><b>Views:</b>${views}</p>
+                        <p class="info-item"><b>Comments:</b>${comments}</p>
+                        <p class="info-item"><b>Downloads:</b>${downloads}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
         `;
     }).join('');
     gallery.insertAdjacentHTML('beforeend', markup);
