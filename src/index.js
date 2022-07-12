@@ -45,7 +45,7 @@ function onSearch(e) {
         }
     })
         .catch(error => console.log(error));
-    onSearch.reset();
+    form.reset();
 }
 
 async function fetchPhotos(search, page, perPage) {
